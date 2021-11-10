@@ -144,6 +144,7 @@ ul {
 footer {
   background: var(--jet);
   color: var(--snow);
+  margin-top: 1.5em;
 }
 
 footer .container {
@@ -204,11 +205,11 @@ footer .container .contact-right {
 
 footer .container .contact-right a {
   text-decoration: none;
-  color: var(--persian-green);
+  color: var(--keppel);
 }
 
 footer .container .contact-right a:hover {
-  color: var(--keppel);
+  color: var(--medium-turquoise);
 }
 
 footer .copyright {

@@ -186,6 +186,7 @@ ul {
 footer {
     background: var(--jet);
     color: var(--snow);
+    margin-top: 1.5em;
     .container {
         margin-top: 0;
         margin-bottom: 0;
@@ -233,9 +234,9 @@ footer {
             text-align: left;
             a {
                 text-decoration: none;
-                color: var(--persian-green);
+                color: var(--keppel);
                 &:hover {
-                    color: var(--keppel);
+                    color: var(--medium-turquoise);
                 }
             }
         }
