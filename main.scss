@@ -65,10 +65,15 @@ html {
     $gradient-radial: radial-gradient(#323031ff, #3d3b3cff, #535052ff, #246b60ff, #339989ff, #3db8a5ff, #66ccbdff, #fffafbff);
 }
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body{
     background: var(--dark-liver);
     margin: 0;
-    font-family: 'Roboto'
+    font-family: 'Roboto';
+    display: grid;
 }
 
 .navbar{
@@ -77,6 +82,11 @@ body{
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 500;
+
+    .mobile-menu {
+        padding-right: 0;
+    }
 
     nav {
         display: none;
@@ -165,9 +175,13 @@ ul {
     background-size: cover;
     height: 400px;
 }
+
 .hero {
-    ul {
-        
+    .container {
+        transform: translateY(-17em);
+        ul {
+
+        }
     }
 }
 
@@ -183,10 +197,313 @@ ul {
     }
 }
 
+.cards {
+    background-color: var(--jet-2);
+    border-radius: 1em;
+    margin: 0 1.5em;
+    padding: 1.5em 0;
+    transform: translateY(-.8em);
+    display: grid;
+    place-content: unset;
+    place-items: center;
+    .card1 {
+        color: var(--snow);
+        background-image: url(images/pexels1.jpg);
+        background-size: cover;
+        padding: 15rem 0 0;
+        max-width: 35ch;
+        margin: 1em;
+        border-radius: .5rem;
+        overflow: hidden;
+        transition: transform 500ms ease;
+    }
+    
+    .card1:hover, .card1:focus-within {
+        transform: scale(1.03);
+    }
+    
+    .card-content{
+        --padding: 1.5rem;
+        padding: var(--padding);
+        background: linear-gradient(
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0.6) 30%,
+            rgba(0, 0, 0, 1)
+        );
+    
+        transform: translateY(60%);
+        transition: transform 500ms ease;
+        
+    }
+    
+    .card1:hover .card-content, .card1:focus-within .card-content {
+        transform: translateY(0);
+        transition-delay: 500ms;
+    }
+    
+    .card1:focus-within .card-content {
+        transition-duration: 0ms;
+    }
+    
+    .card-content > *:not(.card-title) {
+        opacity: 0;
+        transition: opacity 500ms linear;
+    }
+    
+    .card1:hover .card-content > *:not(.card-title),
+    .card1:focus-within .card-content > *:not(.card-title) {
+        opacity: 1;
+        transition: opacity 500ms linear;
+        transition-delay: 1000ms;
+    }
+    
+    .card1:focus-within .card-content > *:not(.card-title) {
+        transition-delay: 200ms;
+    }
+    
+    .card-title{
+        position: relative;
+        width: max-content;
+    }
+    .card-title::after{
+        content: "";
+        position: absolute;
+        height: 4px;
+        left: calc(var(--padding)*-1);
+        bottom: -0.2em;
+        width: calc(100% + var(--padding));
+        background: var(--persian-green);
+        transform: scaleX(0);
+        transform-origin: left;
+    
+        transition: transform 500ms ease;
+    }
+    
+    .card1:hover .card-title::after,
+    .card1:focus-within .card-title::after {
+        transform: scaleX(1);
+    }
+    
+    .card-body {
+        color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .button {
+        cursor: pointer;
+        display: inline-block;
+        text-decoration: none;
+        color: var(--snow);
+        background-color: var(--pine-green);
+        padding: .5em 1.25em;
+        border-radius: .3em;
+        &:hover, &:focus {
+            background-color: var(--persian-green);
+            font-weight: bold;
+        }
+    }
+    
+
+    .card2 {
+        color: var(--snow);
+        background-image: url(images/pexels2.jpg);
+        background-size: cover;
+        padding: 15rem 0 0;
+        max-width: 35ch;
+        margin: 1em;
+        border-radius: .5rem;
+        overflow: hidden;
+        transition: transform 500ms ease;
+    }
+    
+    .card2:hover, .card2:focus-within {
+        transform: scale(1.03);
+    }
+    
+    .card-content{
+        --padding: 1.5rem;
+        padding: var(--padding);
+        background: linear-gradient(
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0.6) 30%,
+            rgba(0, 0, 0, 1)
+        );
+    
+        transform: translateY(60%);
+        transition: transform 500ms ease;
+        
+    }
+    
+    .card2:hover .card-content, .card2:focus-within .card-content {
+        transform: translateY(0);
+        transition-delay: 500ms;
+    }
+    
+    .card2:focus-within .card-content {
+        transition-duration: 0ms;
+    }
+    
+    .card-content > *:not(.card-title) {
+        opacity: 0;
+        transition: opacity 500ms linear;
+    }
+    
+    .card2:hover .card-content > *:not(.card-title),
+    .card2:focus-within .card-content > *:not(.card-title) {
+        opacity: 1;
+        transition: opacity 500ms linear;
+        transition-delay: 1000ms;
+    }
+    
+    .card2:focus-within .card-content > *:not(.card-title) {
+        transition-delay: 200ms;
+    }
+    
+    .card-title{
+        position: relative;
+        width: max-content;
+    }
+    .card-title::after{
+        content: "";
+        position: absolute;
+        height: 4px;
+        left: calc(var(--padding)*-1);
+        bottom: -0.2em;
+        width: calc(100% + var(--padding));
+        background: var(--persian-green);
+        transform: scaleX(0);
+        transform-origin: left;
+    
+        transition: transform 500ms ease;
+    }
+    
+    .card2:hover .card-title::after,
+    .card2:focus-within .card-title::after {
+        transform: scaleX(1);
+    }
+    
+    .card-body {
+        color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .button {
+        cursor: pointer;
+        display: inline-block;
+        text-decoration: none;
+        color: var(--snow);
+        background-color: var(--pine-green);
+        padding: .5em 1.25em;
+        border-radius: .3em;
+        &:hover, &:focus {
+            background-color: var(--persian-green);
+            font-weight: bold;
+        }
+    }
+    
+
+    .card3 {
+        color: var(--snow);
+        background-image: url(images/pexels4.jpg);
+        background-size: cover;
+        padding: 15rem 0 0;
+        max-width: 35ch;
+        margin: 1em;
+        border-radius: .5rem;
+        overflow: hidden;
+        transition: transform 500ms ease;
+    }
+    
+    .card3:hover, .card3:focus-within {
+        transform: scale(1.03);
+    }
+    
+    .card-content{
+        --padding: 1.5rem;
+        padding: var(--padding);
+        background: linear-gradient(
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0.6) 30%,
+            rgba(0, 0, 0, 1)
+        );
+    
+        transform: translateY(60%);
+        transition: transform 500ms ease;
+        
+    }
+    
+    .card3:hover .card-content, .card3:focus-within .card-content {
+        transform: translateY(0);
+        transition-delay: 500ms;
+    }
+    
+    .card3:focus-within .card-content {
+        transition-duration: 0ms;
+    }
+    
+    .card-content > *:not(.card-title) {
+        opacity: 0;
+        transition: opacity 500ms linear;
+    }
+    
+    .card3:hover .card-content > *:not(.card-title),
+    .card3:focus-within .card-content > *:not(.card-title) {
+        opacity: 1;
+        transition: opacity 500ms linear;
+        transition-delay: 1000ms;
+    }
+    
+    .card3:focus-within .card-content > *:not(.card-title) {
+        transition-delay: 200ms;
+    }
+    
+    .card-title{
+        position: relative;
+        width: max-content;
+    }
+    .card-title::after{
+        content: "";
+        position: absolute;
+        height: 4px;
+        left: calc(var(--padding)*-1);
+        bottom: -0.2em;
+        width: calc(100% + var(--padding));
+        background: var(--persian-green);
+        transform: scaleX(0);
+        transform-origin: left;
+    
+        transition: transform 500ms ease;
+    }
+    
+    .card3:hover .card-title::after,
+    .card3:focus-within .card-title::after {
+        transform: scaleX(1);
+    }
+    
+    .card-body {
+        color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .button {
+        cursor: pointer;
+        display: inline-block;
+        text-decoration: none;
+        color: var(--snow);
+        background-color: var(--pine-green);
+        padding: .5em 1.25em;
+        border-radius: .3em;
+        &:hover, &:focus {
+            background-color: var(--persian-green);
+            font-weight: bold;
+        }
+    }
+    
+}
+
 footer {
     background: var(--jet);
     color: var(--snow);
     margin-top: 1.5em;
+    padding-top: 1.5em;
+    width: 100%;
     .container {
         margin-top: 0;
         margin-bottom: 0;
@@ -232,6 +549,26 @@ footer {
         }
         .contact-right {
             text-align: left;
+            margin-left: 1em;
+            ul {
+                h2 {
+                    font-size: 2em;
+                    color: var(--persian-green);
+                    text-shadow: 1px 1px #303030;
+                    margin: 0;
+                    margin-bottom: 1em;
+                }
+                li {
+                    padding-bottom: .5em;
+                    color: var(--snow);
+                    .nummer {
+                        cursor: pointer;
+                        color: var(--keppel);
+                        margin-bottom: .5em;
+                    }
+                }
+                
+            }
             a {
                 text-decoration: none;
                 color: var(--keppel);
@@ -294,16 +631,20 @@ footer {
             margin: 0;
         }
         ul.secondary-nav {
-            padding-right: 3em;
+            padding-right: 1em;
         }
         li a {
             font-weight: normal;
             padding: 1.5em 1em;
 
-            &:hover {
+            &:hover, &:focus {
                 font-weight: bold;
                 color: var(--snow);
                 background: var(--persian-green);
+                transition: background 200ms linear;
+                border-radius: .3em;
+                transform: translateY(-.4em);
+                padding-top: 2em;
             }
         }
     }
@@ -328,9 +669,23 @@ footer {
         }
     }
 
+    .cards {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        place-content: unset;
+        place-items: center;
+    }
+
     footer .container {
         display: grid;
-        grid-template-columns: auto auto;
+        grid-template-columns: 30% auto;
         place-content: unset;
+        .contact-right {
+            text-align: right;
+        }
+    }
+
+    .copyright {
+        transform: translateY(-2em);
     }
 }

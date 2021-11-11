@@ -28,10 +28,17 @@ html {
   /* SCSS Gradient */
 }
 
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 body {
   background: var(--dark-liver);
   margin: 0;
   font-family: 'Roboto';
+  display: -ms-grid;
+  display: grid;
 }
 
 .navbar {
@@ -40,6 +47,11 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 500;
+}
+
+.navbar .mobile-menu {
+  padding-right: 0;
 }
 
 .navbar nav {
@@ -128,6 +140,11 @@ ul {
   height: 400px;
 }
 
+.hero .container {
+  -webkit-transform: translateY(-17em);
+          transform: translateY(-17em);
+}
+
 .description {
   background: var(--jet-2);
   color: var(--snow);
@@ -141,10 +158,370 @@ ul {
   padding: .5em 2em;
 }
 
+.cards {
+  background-color: var(--jet-2);
+  border-radius: 1em;
+  margin: 0 1.5em;
+  padding: 1.5em 0;
+  -webkit-transform: translateY(-0.8em);
+          transform: translateY(-0.8em);
+  display: -ms-grid;
+  display: grid;
+  place-content: unset;
+  place-items: center;
+}
+
+.cards .card1 {
+  color: var(--snow);
+  background-image: url(images/pexels1.jpg);
+  background-size: cover;
+  padding: 15rem 0 0;
+  max-width: 35ch;
+  margin: 1em;
+  border-radius: .5rem;
+  overflow: hidden;
+  -webkit-transition: -webkit-transform 500ms ease;
+  transition: -webkit-transform 500ms ease;
+  transition: transform 500ms ease;
+  transition: transform 500ms ease, -webkit-transform 500ms ease;
+}
+
+.cards .card1:hover, .cards .card1:focus-within {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+}
+
+.cards .card-content {
+  --padding: 1.5rem;
+  padding: var(--padding);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(30%, rgba(0, 0, 0, 0.6)), to(black));
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 30%, black);
+  -webkit-transform: translateY(60%);
+          transform: translateY(60%);
+  -webkit-transition: -webkit-transform 500ms ease;
+  transition: -webkit-transform 500ms ease;
+  transition: transform 500ms ease;
+  transition: transform 500ms ease, -webkit-transform 500ms ease;
+}
+
+.cards .card1:hover .card-content, .cards .card1:focus-within .card-content {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 500ms;
+          transition-delay: 500ms;
+}
+
+.cards .card1:focus-within .card-content {
+  -webkit-transition-duration: 0ms;
+          transition-duration: 0ms;
+}
+
+.cards .card-content > *:not(.card-title) {
+  opacity: 0;
+  -webkit-transition: opacity 500ms linear;
+  transition: opacity 500ms linear;
+}
+
+.cards .card1:hover .card-content > *:not(.card-title),
+.cards .card1:focus-within .card-content > *:not(.card-title) {
+  opacity: 1;
+  -webkit-transition: opacity 500ms linear;
+  transition: opacity 500ms linear;
+  -webkit-transition-delay: 1000ms;
+          transition-delay: 1000ms;
+}
+
+.cards .card1:focus-within .card-content > *:not(.card-title) {
+  -webkit-transition-delay: 200ms;
+          transition-delay: 200ms;
+}
+
+.cards .card-title {
+  position: relative;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.cards .card-title::after {
+  content: "";
+  position: absolute;
+  height: 4px;
+  left: calc(var(--padding)*-1);
+  bottom: -0.2em;
+  width: calc(100% + var(--padding));
+  background: var(--persian-green);
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-transition: -webkit-transform 500ms ease;
+  transition: -webkit-transform 500ms ease;
+  transition: transform 500ms ease;
+  transition: transform 500ms ease, -webkit-transform 500ms ease;
+}
+
+.cards .card1:hover .card-title::after,
+.cards .card1:focus-within .card-title::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.cards .card-body {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.cards .button {
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--snow);
+  background-color: var(--pine-green);
+  padding: .5em 1.25em;
+  border-radius: .3em;
+}
+
+.cards .button:hover, .cards .button:focus {
+  background-color: var(--persian-green);
+  font-weight: bold;
+}
+
+.cards .card2 {
+  color: var(--snow);
+  background-image: url(images/pexels2.jpg);
+  background-size: cover;
+  padding: 15rem 0 0;
+  max-width: 35ch;
+  margin: 1em;
+  border-radius: .5rem;
+  overflow: hidden;
+  -webkit-transition: -webkit-transform 500ms ease;
+  transition: -webkit-transform 500ms ease;
+  transition: transform 500ms ease;
+  transition: transform 500ms ease, -webkit-transform 500ms ease;
+}
+
+.cards .card2:hover, .cards .card2:focus-within {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+}
+
+.cards .card-content {
+  --padding: 1.5rem;
+  padding: var(--padding);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(30%, rgba(0, 0, 0, 0.6)), to(black));
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 30%, black);
+  -webkit-transform: translateY(60%);
+          transform: translateY(60%);
+  -webkit-transition: -webkit-transform 500ms ease;
+  transition: -webkit-transform 500ms ease;
+  transition: transform 500ms ease;
+  transition: transform 500ms ease, -webkit-transform 500ms ease;
+}
+
+.cards .card2:hover .card-content, .cards .card2:focus-within .card-content {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 500ms;
+          transition-delay: 500ms;
+}
+
+.cards .card2:focus-within .card-content {
+  -webkit-transition-duration: 0ms;
+          transition-duration: 0ms;
+}
+
+.cards .card-content > *:not(.card-title) {
+  opacity: 0;
+  -webkit-transition: opacity 500ms linear;
+  transition: opacity 500ms linear;
+}
+
+.cards .card2:hover .card-content > *:not(.card-title),
+.cards .card2:focus-within .card-content > *:not(.card-title) {
+  opacity: 1;
+  -webkit-transition: opacity 500ms linear;
+  transition: opacity 500ms linear;
+  -webkit-transition-delay: 1000ms;
+          transition-delay: 1000ms;
+}
+
+.cards .card2:focus-within .card-content > *:not(.card-title) {
+  -webkit-transition-delay: 200ms;
+          transition-delay: 200ms;
+}
+
+.cards .card-title {
+  position: relative;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.cards .card-title::after {
+  content: "";
+  position: absolute;
+  height: 4px;
+  left: calc(var(--padding)*-1);
+  bottom: -0.2em;
+  width: calc(100% + var(--padding));
+  background: var(--persian-green);
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-transition: -webkit-transform 500ms ease;
+  transition: -webkit-transform 500ms ease;
+  transition: transform 500ms ease;
+  transition: transform 500ms ease, -webkit-transform 500ms ease;
+}
+
+.cards .card2:hover .card-title::after,
+.cards .card2:focus-within .card-title::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.cards .card-body {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.cards .button {
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--snow);
+  background-color: var(--pine-green);
+  padding: .5em 1.25em;
+  border-radius: .3em;
+}
+
+.cards .button:hover, .cards .button:focus {
+  background-color: var(--persian-green);
+  font-weight: bold;
+}
+
+.cards .card3 {
+  color: var(--snow);
+  background-image: url(images/pexels4.jpg);
+  background-size: cover;
+  padding: 15rem 0 0;
+  max-width: 35ch;
+  margin: 1em;
+  border-radius: .5rem;
+  overflow: hidden;
+  -webkit-transition: -webkit-transform 500ms ease;
+  transition: -webkit-transform 500ms ease;
+  transition: transform 500ms ease;
+  transition: transform 500ms ease, -webkit-transform 500ms ease;
+}
+
+.cards .card3:hover, .cards .card3:focus-within {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+}
+
+.cards .card-content {
+  --padding: 1.5rem;
+  padding: var(--padding);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(30%, rgba(0, 0, 0, 0.6)), to(black));
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 30%, black);
+  -webkit-transform: translateY(60%);
+          transform: translateY(60%);
+  -webkit-transition: -webkit-transform 500ms ease;
+  transition: -webkit-transform 500ms ease;
+  transition: transform 500ms ease;
+  transition: transform 500ms ease, -webkit-transform 500ms ease;
+}
+
+.cards .card3:hover .card-content, .cards .card3:focus-within .card-content {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 500ms;
+          transition-delay: 500ms;
+}
+
+.cards .card3:focus-within .card-content {
+  -webkit-transition-duration: 0ms;
+          transition-duration: 0ms;
+}
+
+.cards .card-content > *:not(.card-title) {
+  opacity: 0;
+  -webkit-transition: opacity 500ms linear;
+  transition: opacity 500ms linear;
+}
+
+.cards .card3:hover .card-content > *:not(.card-title),
+.cards .card3:focus-within .card-content > *:not(.card-title) {
+  opacity: 1;
+  -webkit-transition: opacity 500ms linear;
+  transition: opacity 500ms linear;
+  -webkit-transition-delay: 1000ms;
+          transition-delay: 1000ms;
+}
+
+.cards .card3:focus-within .card-content > *:not(.card-title) {
+  -webkit-transition-delay: 200ms;
+          transition-delay: 200ms;
+}
+
+.cards .card-title {
+  position: relative;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.cards .card-title::after {
+  content: "";
+  position: absolute;
+  height: 4px;
+  left: calc(var(--padding)*-1);
+  bottom: -0.2em;
+  width: calc(100% + var(--padding));
+  background: var(--persian-green);
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-transition: -webkit-transform 500ms ease;
+  transition: -webkit-transform 500ms ease;
+  transition: transform 500ms ease;
+  transition: transform 500ms ease, -webkit-transform 500ms ease;
+}
+
+.cards .card3:hover .card-title::after,
+.cards .card3:focus-within .card-title::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.cards .card-body {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.cards .button {
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--snow);
+  background-color: var(--pine-green);
+  padding: .5em 1.25em;
+  border-radius: .3em;
+}
+
+.cards .button:hover, .cards .button:focus {
+  background-color: var(--persian-green);
+  font-weight: bold;
+}
+
 footer {
   background: var(--jet);
   color: var(--snow);
   margin-top: 1.5em;
+  padding-top: 1.5em;
+  width: 100%;
 }
 
 footer .container {
@@ -201,6 +578,26 @@ footer .container .contact-left input[type="submit"]:hover {
 
 footer .container .contact-right {
   text-align: left;
+  margin-left: 1em;
+}
+
+footer .container .contact-right ul h2 {
+  font-size: 2em;
+  color: var(--persian-green);
+  text-shadow: 1px 1px #303030;
+  margin: 0;
+  margin-bottom: 1em;
+}
+
+footer .container .contact-right ul li {
+  padding-bottom: .5em;
+  color: var(--snow);
+}
+
+footer .container .contact-right ul li .nummer {
+  cursor: pointer;
+  color: var(--keppel);
+  margin-bottom: .5em;
 }
 
 footer .container .contact-right a {
@@ -265,16 +662,22 @@ footer .copyright {
     margin: 0;
   }
   .navbar nav ul.secondary-nav {
-    padding-right: 3em;
+    padding-right: 1em;
   }
   .navbar nav li a {
     font-weight: normal;
     padding: 1.5em 1em;
   }
-  .navbar nav li a:hover {
+  .navbar nav li a:hover, .navbar nav li a:focus {
     font-weight: bold;
     color: var(--snow);
     background: var(--persian-green);
+    -webkit-transition: background 200ms linear;
+    transition: background 200ms linear;
+    border-radius: .3em;
+    -webkit-transform: translateY(-0.4em);
+            transform: translateY(-0.4em);
+    padding-top: 2em;
   }
   .hero ul {
     display: -webkit-box;
@@ -298,12 +701,27 @@ footer .copyright {
     text-align: center;
     color: var(--snow);
   }
+  .cards {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: auto auto auto;
+        grid-template-columns: auto auto auto;
+    place-content: unset;
+    place-items: center;
+  }
   footer .container {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: auto auto;
-        grid-template-columns: auto auto;
+    -ms-grid-columns: 30% auto;
+        grid-template-columns: 30% auto;
     place-content: unset;
+  }
+  footer .container .contact-right {
+    text-align: right;
+  }
+  .copyright {
+    -webkit-transform: translateY(-2em);
+            transform: translateY(-2em);
   }
 }
 /*# sourceMappingURL=main.css.map */
