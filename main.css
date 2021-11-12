@@ -1,5 +1,8 @@
+@charset "UTF-8";
+/* Importieren von der "Roboto" Font */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 html {
+  /* Flüssiges Scrollen bei anklicken eines Links für die selbe Seite */
   scroll-behavior: smooth;
 }
 
